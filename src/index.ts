@@ -1,10 +1,20 @@
 import express from "express";
 import cors from "cors";
-import {router} from "@routes/router"
+import morgan from "morgan";
+import { Router } from "./routes/index.routes";
+import { connection } from "./db.connection";
 
 const app = express();
+
+connection()
+
+/* Middlewares */
 app.use(cors());
-app.use(router)
+app.use(morgan("common"));
+
+app.use("/api", Router);
+
+/* Server */
 app.get("/", (req, res) => {
   res.status(200).send("Hello world");
 });
