@@ -8,7 +8,10 @@ export class UserController {
     res.json(users);
   };
 
-  getUser = (res: Response, req: Request) => {};
+  getUser = (res: Response, req: Request) => {
+    const user = UserModel.find(req.body)
+    res.json(user)
+  };
 
   createUser = (res: Response, req: Request) => {};
 
