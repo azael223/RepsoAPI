@@ -3,19 +3,39 @@ import { Response, Request } from "express";
 import {} from "mongoose";
 
 export class UserController {
-  getUsers = (res: Response, req: Request) => {
-    const users = UserModel.find();
-    res.json(users);
+  getUsers = async (res: Response, req: Request) => {
+    try {
+      const users = await UserModel.find();
+      res.json(users);
+    } catch (err) {
+      res.json(err);
+    }
   };
 
-  getUser = (res: Response, req: Request) => {
-    const user = UserModel.find(req.body)
-    res.json(user)
+  getUser = async (res: Response, req: Request) => {
+    try {
+      const user = await UserModel.find(req.body);
+      res.json(user);
+    } catch (err) {
+      res.json(err);
+    }
   };
 
-  createUser = (res: Response, req: Request) => {};
+  createUser = async (res: Response, req: Request):Promise<Response>  => {
+    try {
+      const newUser = new UserModel(req.body);
+      await UserModel.create(newUser);
+      const result = await newUser.save()
+      return res.json(result);
+    } catch (err) {
+      return res.json(err);
+    }
+  };
 
-  deleteUser = (res: Response, req: Request) => {};
+  deleteUser = async (res: Response, req: Request) => {
+    const deleted = await UserModel.remove(req.body);
+    res.json(deleted.deletedCount);
+  };
 
   updateUser = (res: Response, req: Request) => {};
 }

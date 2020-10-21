@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { Router } from "./routes/index.routes";
@@ -6,7 +6,7 @@ import { connection } from "./db.connection";
 
 const app = express();
 
-connection()
+connection();
 
 /* Middlewares */
 app.use(cors());
@@ -15,9 +15,17 @@ app.use(morgan("common"));
 app.use("/api", Router);
 
 /* Server */
-app.get("/", (req, res) => {
-  res.status(200).send("Hello world");
-});
-app.listen(8000, () => {
-  console.log("Server started at port 8000");
+const config = {
+  host: "localhost",
+  port: 2021,
+};
+
+const home = (req:Request, res:Response)=>{
+  res.send('Hello World xd')
+};
+
+app.get("/", home);
+
+app.listen(config.port, config.host, () => {
+  console.log(`Server started at http://${config.host}:${config.port}/`);
 });

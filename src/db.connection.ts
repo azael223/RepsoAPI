@@ -8,6 +8,7 @@ const DBCONFIG = {
   password: "110211",
   database: "repso",
   config: {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
