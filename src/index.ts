@@ -6,11 +6,14 @@ import { connection } from "./db.connection";
 
 const app = express();
 
-connection();
+connection
+  .then(() => console.log("MongoDB:Connected"))
+  .catch((err) => console.log(err));
 
 /* Middlewares */
 app.use(cors());
 app.use(morgan("common"));
+app.use(express.json())
 
 app.use("/api", Router);
 
@@ -20,8 +23,8 @@ const config = {
   port: 2021,
 };
 
-const home = (req:Request, res:Response)=>{
-  res.send('Hello World xd')
+const home = (req: Request, res: Response) => {
+  res.send("Hello World xd");
 };
 
 app.get("/", home);

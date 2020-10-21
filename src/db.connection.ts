@@ -17,7 +17,6 @@ const DBCONFIG = {
 /* structure :  'mongodb://localhost:27017/myapp'
                 'mongodb://username:password@host:port/database?options...'*/
 
-const connection = () => {
   const URI =
     DBCONFIG.type +
     `://${DBCONFIG.user}:` +
@@ -25,10 +24,7 @@ const connection = () => {
     `${DBCONFIG.host}:` +
     `${DBCONFIG.port}/` +
     `${DBCONFIG.database}`;
-  mongoose.connect(URI, DBCONFIG.config);
-  console.log(
-    `Mongodb: Connected to ${DBCONFIG.host}:${DBCONFIG.port}/${DBCONFIG.database}`
-  );
-};
+
+  const connection = mongoose.connect(URI, DBCONFIG.config)
 
 export { connection };
