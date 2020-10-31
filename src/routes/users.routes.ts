@@ -4,14 +4,14 @@ import { UserController } from "../controllers/user.controller";
 const _userCtrl = new UserController();
 const UsersRouter = express.Router();
 
-UsersRouter.get("/", _userCtrl.getUsers);
+UsersRouter.get("/", _userCtrl.find);
 
-UsersRouter.get("/:id", _userCtrl.getUser);
+UsersRouter.get("/:id", _userCtrl.findOne);
 
-UsersRouter.post("/CreateUser", _userCtrl.createUser);
+UsersRouter.post("/CreateUser", _userCtrl.add);
 
-UsersRouter.delete("/DeleteUser", _userCtrl.deleteUser);
+UsersRouter.delete("/DeleteUser", _userCtrl.delete);
 
-UsersRouter.post("/UpdateUser", _userCtrl.updateUser);
+UsersRouter.post("/UpdateUser", _userCtrl.update);
 
 export { UsersRouter };
