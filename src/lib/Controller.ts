@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { Model, Document } from "mongoose";
 
 export class Controller {
-  protected Model: Model<Document> = new Model();
+  protected Model: any;
 
   add = async (req: Request, res: Response) => {
     try {

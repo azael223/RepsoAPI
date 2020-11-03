@@ -9,6 +9,7 @@ const UserSchema: Schema = new Schema(
     password: { type: String, minlength: 8, required: true },
     phone: { type: String, minlength: 10, maxlength: 10, unique: true },
     email: { type: String, maxlength: 320, required: true, unique: true },
+    type: { type: String, minlength: 1, maxlength: 1, required: true },
   },
   { timestamps: { createdAt: true, updatedAt: true } }
 );
