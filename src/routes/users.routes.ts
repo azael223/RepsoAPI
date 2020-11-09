@@ -8,10 +8,10 @@ UsersRouter.get("/", _userCtrl.find);
 
 UsersRouter.get("/:id", _userCtrl.findOne);
 
-UsersRouter.post("/CreateUser", _userCtrl.add);
+UsersRouter.post("/Create", _userCtrl.add);
 
-UsersRouter.delete("/DeleteUser", _userCtrl.delete);
+UsersRouter.delete("/Delete", _userCtrl.delete);
 
-UsersRouter.post("/UpdateUser", _userCtrl.update);
+UsersRouter.post("/Update", _userCtrl.update);
 
 export { UsersRouter };

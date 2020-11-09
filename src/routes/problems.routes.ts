@@ -8,10 +8,10 @@ ProblemsRouter.get("/", _problemCtrl.find);
 
 ProblemsRouter.get("/:id", _problemCtrl.findOne);
 
-ProblemsRouter.post("/CreateProblem", _problemCtrl.add);
+ProblemsRouter.post("/Create", _problemCtrl.add);
 
-ProblemsRouter.delete("/DeleteProblem", _problemCtrl.delete);
+ProblemsRouter.delete("/Delete", _problemCtrl.delete);
 
-ProblemsRouter.post("/UpdateProblem", _problemCtrl.update);
+ProblemsRouter.post("/Update", _problemCtrl.update);
 
 export { ProblemsRouter };

@@ -8,10 +8,10 @@ DepartamentsRouter.get("/", _departamentCtrl.find);
 
 DepartamentsRouter.get("/:id", _departamentCtrl.findOne);
 
-DepartamentsRouter.post("/CreateDepartament", _departamentCtrl.add);
+DepartamentsRouter.post("/Create", _departamentCtrl.add);
 
-DepartamentsRouter.delete("/DeleteDepartament", _departamentCtrl.delete);
+DepartamentsRouter.delete("/Delete", _departamentCtrl.delete);
 
-DepartamentsRouter.post("/UpdateDepartament", _departamentCtrl.update);
+DepartamentsRouter.post("/Update", _departamentCtrl.update);
 
 export { DepartamentsRouter };

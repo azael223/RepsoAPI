@@ -8,10 +8,10 @@ CategoriesRouter.get("/", _categoryCtrl.find);
 
 CategoriesRouter.get("/:id", _categoryCtrl.findOne);
 
-CategoriesRouter.post("/CreateCategory", _categoryCtrl.add);
+CategoriesRouter.post("/Create", _categoryCtrl.add);
 
-CategoriesRouter.delete("/DeleteCategory", _categoryCtrl.delete);
+CategoriesRouter.delete("/Delete", _categoryCtrl.delete);
 
-CategoriesRouter.post("/UpdateCategory", _categoryCtrl.update);
+CategoriesRouter.post("/Update", _categoryCtrl.update);
 
 export { CategoriesRouter };

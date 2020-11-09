@@ -8,10 +8,10 @@ ReportsRouter.get("/", _reportCtrl.find);
 
 ReportsRouter.get("/:id", _reportCtrl.findOne);
 
-ReportsRouter.post("/CreateReport", _reportCtrl.add);
+ReportsRouter.post("/Create", _reportCtrl.add);
 
-ReportsRouter.delete("/DeleteReport", _reportCtrl.delete);
+ReportsRouter.delete("/Delete", _reportCtrl.delete);
 
-ReportsRouter.post("/UpdateReport", _reportCtrl.update);
+ReportsRouter.post("/Update", _reportCtrl.update);
 
 export { ReportsRouter };
